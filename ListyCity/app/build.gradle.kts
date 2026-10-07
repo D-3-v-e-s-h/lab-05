@@ -1,4 +1,6 @@
 plugins {
+    // id("com.android.application") Note: Android application plugin is already declared in line 4
+    id("com.google.gms.google-services")
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
@@ -40,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:34.19.0")) // Import BoM for the Firebase platform
+    implementation("com.google.firebase:firebase-firestore") // Dependency for the Cloud Firestore library
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
